@@ -30,11 +30,11 @@ const SignupForm = () => {
       event.stopPropagation();
     }
     try {
-      const data = await addUser({
+      const {data} = await addUser({
         variables: { ...userFormData },
       });
 
-      const { token } = data;
+      const { token } = data.addUser;
       Auth.login(token);
     } catch (err) {
       throw err;
